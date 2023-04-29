@@ -1,4 +1,4 @@
-package control_utilidades;
+package usuario;
 
 import java.util.Scanner;
 
@@ -8,7 +8,6 @@ import java.util.Scanner;
  * @author Carlos @ version 1.0
  */
 public class Util {
-
 	/**
 	 * Muestra un mensaje por consola
 	 * 

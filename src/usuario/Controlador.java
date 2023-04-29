@@ -1,16 +1,18 @@
-package control_utilidades;
+package usuario;
+
+import control_utilidades.ListaES;
+import control_utilidades.ListaIN;
 
 /**
  * Clase controlador para ejecución del programa
+ * 
  * @author Carlos
  * @verion 1.0
  *
  */
-
 public class Controlador {
-
 	public static void main(String[] args) {
-		
+
 		int opcion = 0;
 		int opcionCancionesES = 0;
 		int opcionCancionesIN = 0;
@@ -237,7 +239,7 @@ public class Controlador {
 						case 3:// Eliminar canción ingles
 
 							vaciaIn = miListaIngles.vacia();// Si la lista está vacía, me informa y no
-							                                // y no me deja modidficar.
+															// y no me deja modidficar.
 
 							if (vaciaIn == true) {
 								System.out.println("No se pueden eliminar canciones porque tu lista está vacia.");
@@ -301,5 +303,5 @@ public class Controlador {
 		}
 
 	}
-			
+
 }

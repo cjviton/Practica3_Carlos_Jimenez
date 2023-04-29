@@ -1,5 +1,12 @@
 package control_utilidades;
 
+/**
+ * Objetos de la clase canción
+ * 
+ * @author Carlos
+ * @version 1.0
+ *
+ */
 public class Cancion {
 	private int id_cancion;
 	private String titulo;
