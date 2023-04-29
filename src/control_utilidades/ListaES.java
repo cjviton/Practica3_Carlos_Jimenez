@@ -1,7 +1,7 @@
 package control_utilidades;
 
 import java.util.ArrayList;
-
+import datos.BaseDatos;
 import usuario.Util;
 
 /**
@@ -49,7 +49,8 @@ public class ListaES {
 	 * @version 1.0
 	 */
 	public void addcancionEs() { // Añadir canciones en mi lista de español mediante scanner
-
+        
+		
 		String titulo = "";
 		String artista = "";
 		String genero = "";
@@ -61,8 +62,12 @@ public class ListaES {
 		genero = Util.pedirString("Genero");
 		ano = Util.pedirInt("Año");
 		EstadoAnimo = Util.pedirString("Estado de ánimo");
-
-		miListaEs.add(new Cancion(titulo, artista, genero, ano, EstadoAnimo));
+        
+		Cancion miCancion = new Cancion(titulo, artista, genero, ano, EstadoAnimo);
+		miListaEs.add(miCancion);
+		String sql = datos.insertSqlES.cancionAsql(miCancion);
+		BaseDatos.ejecutarSql(sql);
+		
 	}
 
 	/**

@@ -1,7 +1,7 @@
 package control_utilidades;
 
 import java.util.ArrayList;
-
+import datos.BaseDatos;
 import usuario.Util;
 /**
  * Objetos de la calse Listan In
@@ -59,7 +59,10 @@ public class ListaIN {
 		ano = Util.pedirInt("Año");
 		EstadoAnimo = Util.pedirString("Estado de ánimo");
 
-		miListaIn.add(new Cancion(titulo, artista, genero, ano, EstadoAnimo));
+		Cancion miCancion = new Cancion(titulo, artista, genero, ano, EstadoAnimo);
+		miListaIn.add(miCancion);
+		String sql = datos.insertSqlIN.cancionAsql(miCancion);
+		BaseDatos.ejecutarSql(sql);
 	}
 
 	/**
