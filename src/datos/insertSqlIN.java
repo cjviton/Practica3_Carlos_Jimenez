@@ -2,7 +2,7 @@ package datos;
 
 import control_utilidades.Cancion;
 
-public class insertSqlIN {      //Genero la sentencia SQL de inserción para ingles
+public class InsertSqlIN { // Genero la sentencia SQL de inserción para ingles
 
 	public static String cancionAsql(Cancion miCancion) {
 
@@ -16,3 +16,4 @@ public class insertSqlIN {      //Genero la sentencia SQL de inserción para ing
 	}
 
 }
+

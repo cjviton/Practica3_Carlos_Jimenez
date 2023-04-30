@@ -61,7 +61,7 @@ public class ListaIN {
 
 		Cancion miCancion = new Cancion(titulo, artista, genero, ano, EstadoAnimo);
 		miListaIn.add(miCancion);
-		String sql = datos.insertSqlIN.cancionAsql(miCancion);
+		String sql = datos.InsertSqlIN.cancionAsql(miCancion);
 		BaseDatos.ejecutarSql(sql);
 	}
 
@@ -105,6 +105,9 @@ public class ListaIN {
 
 				if (item.getTitulo().equals(datoAcambiar)) {
 					item.setTitulo(datoNuevo);
+					//Inserto la sentencia SQL para que modifique el titulo en la base de datos
+					String sql= ("UPDATE canciones_ingles SET titulo = '"+ datoNuevo+"' WHERE titulo = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sql);		
 				}
 				break;
 
@@ -112,6 +115,9 @@ public class ListaIN {
 
 				if (item.getArtista().equals(datoAcambiar)) {
 					item.setArtista(datoNuevo);
+					//Inserto la sentencia SQL para que modifique el artista en la base de datos
+					String sql= ("UPDATE canciones_ingles SET artista = '"+ datoNuevo+"' WHERE artista = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sql);	
 				}
 				break;
 
@@ -119,12 +125,18 @@ public class ListaIN {
 
 				if (item.getGenero().equals(datoAcambiar)) {
 					item.setGenero(datoNuevo);
+					//Inserto la sentencia SQL para que modifique el genero en la base de datos
+					String sql= ("UPDATE canciones_ingles SET genero = '"+ datoNuevo+"' WHERE genero = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sql);	
 				}
 				break;
 
 			case 5:// Modifica estado de ánimo
 				if (item.getEstadoAnimo().equals(datoAcambiar)) {
 					item.setEstadoAnimo(datoNuevo);
+					//Inserto la sentencia SQL para que modifique el estado de animo en la base de datos
+					String sql= ("UPDATE canciones_ingles SET estado_animo = '"+ datoNuevo+"' WHERE estado_animo = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sql);	
 				}
 				break;
 			}
@@ -144,6 +156,9 @@ public class ListaIN {
 		for (Cancion item : miListaIn) {
 			if (item.getAno() == datoAcambiar) {
 				item.setAno(datoNuevo);
+				//Inserto la sentencia SQL para que modifique el año en la base de datos
+				String sql= ("UPDATE canciones_ingles SET ano = '"+ datoNuevo+"' WHERE ano = '"+datoAcambiar+"';");
+				BaseDatos.ejecutarSql(sql);	
 			}
 		}
 	}

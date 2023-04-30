@@ -63,9 +63,9 @@ public class ListaES {
 		ano = Util.pedirInt("Año");
 		EstadoAnimo = Util.pedirString("Estado de ánimo");
         
-		Cancion miCancion = new Cancion(titulo, artista, genero, ano, EstadoAnimo);
-		miListaEs.add(miCancion);
-		String sql = datos.insertSqlES.cancionAsql(miCancion);
+		Cancion miCancion = new Cancion(titulo, artista, genero, ano, EstadoAnimo); //Inicializo la canción nombrándola para poder asignarla
+		miListaEs.add(miCancion);                                                   //a la variable sql
+		String sql = datos.InsertSqlES.cancionAsql(miCancion);
 		BaseDatos.ejecutarSql(sql);
 		
 	}
@@ -107,13 +107,20 @@ public class ListaES {
 
 				if (item.getTitulo().equals(datoAcambiar)) {
 					item.setTitulo(datoNuevo);
-				}
+					//Inserto la sentencia SQL para que modifique el titulo en la base de datos
+				    String sql= ("UPDATE canciones_espanol SET titulo = '"+ datoNuevo+"' WHERE titulo = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sql);				
+				}				
 				break;
 
 			case 2:// modifica artista
 
 				if (item.getArtista().equals(datoAcambiar)) {
-					item.setArtista(datoNuevo);
+					item.setArtista(datoNuevo);	
+					//Inserto la sentencia SQL para que modifique el artista en la base de datos
+					String sql= ("UPDATE canciones_espanol SET artista = '"+ datoNuevo+"' WHERE artista = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sql);	
+										
 				}
 				break;
 
@@ -121,12 +128,18 @@ public class ListaES {
 
 				if (item.getGenero().equals(datoAcambiar)) {
 					item.setGenero(datoNuevo);
+					//Inserto la sentencia SQL para que modifique el genero en la base de datos
+					String sql= ("UPDATE canciones_espanol SET genero = '"+ datoNuevo+"' WHERE genero = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sql);	
 				}
 				break;
 
 			case 5:// Modifica estado de ánimo
 				if (item.getEstadoAnimo().equals(datoAcambiar)) {
 					item.setEstadoAnimo(datoNuevo);
+					//Inserto la sentencia SQL para que modifique el estado de animo en la base de datos
+					String sql= ("UPDATE canciones_espanol SET estado_animo = '"+ datoNuevo+"' WHERE estado_animo = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sql);	
 				}
 				break;
 			}
@@ -147,6 +160,9 @@ public class ListaES {
 		for (Cancion item : miListaEs) {
 			if (item.getAno() == datoAcambiar) {
 				item.setAno(datoNuevo);
+				//Inserto la sentencia SQL para que modifique el año en la base de datos
+				String sql= ("UPDATE canciones_espanol SET ano = '"+ datoNuevo+"' WHERE ano = '"+datoAcambiar+"';");
+				BaseDatos.ejecutarSql(sql);	
 			}
 		}
 	}
