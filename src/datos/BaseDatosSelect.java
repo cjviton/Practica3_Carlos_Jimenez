@@ -6,29 +6,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class BaseDeDatosSelect {
+public class BaseDatosSelect {
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void ejecutarSqlSelect(String sql) {
+
 		Connection conexion = null;
 		Statement sentenciaSQL = null;
 		ResultSet rs;
 		int propietario = 1;
-		String sql = "";
+		//String sql = " ";
 
 		try {
 			// conectar con la base de datos
 			Class.forName("com.mysql.jdbc.Driver");
-			conexion = DriverManager.getConnection("jdbc:mysql://localhost/mi_musica", "root", "");// proporcionamos la
-																									// dirección, el
-																									// administrador y
-																									// la clave
-
+			// proporcionamos la dirección, el administrador y  la clave
+			conexion = DriverManager.getConnection("jdbc:mysql://localhost/mi_musica", "root", "");
+																									
 			// creamos sentencias ejecutables sobre esa conexión
 			sentenciaSQL = conexion.createStatement();
 
 			// almaceno el resultado de la sql en un resulset (conjunto de registros)
-			sql = "SELECT * FROM `propietariospisos` WHERE `idpropietario`=" + propietario;
-			// System.out.println(sql);
+			//sql = "SELECT * FROM canciones_espanol";
+			// System.out.println(sql);      //Si tengo algún problema me servirá para mostrar y copiar la SQL 
+			//para ejecutarla en la base de datos y ver el resultado
 
 			rs = sentenciaSQL.executeQuery(sql);
 
@@ -37,15 +37,25 @@ public class BaseDeDatosSelect {
 			while (rs.next()) {
 				// Si hay resultados obtengo el valor.
 
-				System.out.println("dirección: " + rs.getString("direccion") + " - m2: " + rs.getInt("m2"));
+				System.out.println( rs.getString("cancion") + rs.getInt("cancion"));
 			}
 
-		} catch (SQLException ex) {
+		} catch (SQLException | ClassNotFoundException ex) {
 			ex.printStackTrace();
 			// System.out.println("Error");
 		} finally {
-			sentenciaSQL.close();
-			conexion.close();
+			try {
+				sentenciaSQL.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conexion.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 

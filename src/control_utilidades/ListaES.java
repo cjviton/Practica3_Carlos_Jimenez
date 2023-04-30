@@ -2,6 +2,7 @@ package control_utilidades;
 
 import java.util.ArrayList;
 import datos.BaseDatos;
+import datos.BaseDatosSelect;
 import usuario.Util;
 
 /**
@@ -183,7 +184,8 @@ public class ListaES {
 			do {
 				if (miListaEs.get(i).getTitulo().equals(datoAeliminar)) {
 					miListaEs.remove(i);
-					String sql= ("DELETE FROM canciones_espanol WHERE titulo = '" + datoAeliminar + "';");
+					//Inserto la sentencia SQL para que elimine la canción de la base de datos
+					String sql= ("DELETE FROM canciones_espanol WHERE titulo = '" + datoAeliminar + "';"); 
 					BaseDatos.ejecutarSql(sql);	
 					encontrado = true;
 				}
@@ -209,6 +211,9 @@ public class ListaES {
 
 				if (item.getTitulo().equals(textoAbuscar)) {
 					System.out.println(item);
+					//Inserto la sentencia SQL para que busque la canción de la base de datos por título
+					String sql= ("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE titulo = '" + textoAbuscar + "';"); 
+					BaseDatosSelect.ejecutarSqlSelect(sql);	
 				}
 				break;
 

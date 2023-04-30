@@ -178,6 +178,9 @@ public class ListaIN {
 			do {
 				if (miListaIn.get(i).getTitulo().equals(datoAeliminar)) {
 					miListaIn.remove(i);
+					//Inserto la sentencia SQL para que elimine la canción de la base de datos
+					String sql= ("DELETE FROM canciones_ingles WHERE titulo = '" + datoAeliminar + "';"); 
+					BaseDatos.ejecutarSql(sql);	
 					encontrado=true;
 				}
 				i++;
