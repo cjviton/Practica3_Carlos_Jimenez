@@ -183,6 +183,8 @@ public class ListaES {
 			do {
 				if (miListaEs.get(i).getTitulo().equals(datoAeliminar)) {
 					miListaEs.remove(i);
+					String sql= ("DELETE FROM canciones_espanol WHERE titulo = '" + datoAeliminar + "';");
+					BaseDatos.ejecutarSql(sql);	
 					encontrado = true;
 				}
 				i++;
