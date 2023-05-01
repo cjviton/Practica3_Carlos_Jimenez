@@ -29,7 +29,6 @@ public class BaseDatosVacia {
 		     if(rs.next()) {								   // chequeo que el result set no sea vacío, moviendo el cursor a la 
 		    	                                               // primer fila. (El cursor inicia antes de la primer fila)
 		        numero= rs.getInt(1);                          //Si hay resultados obtengo el valor. 
-		        System.out.println(numero);
 		        	if (numero > 0 ) {
 		        		 vacia=false;
      	        	}

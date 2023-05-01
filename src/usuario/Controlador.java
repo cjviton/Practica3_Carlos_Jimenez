@@ -85,9 +85,10 @@ public class Controlador {
 							break;
 
 						case 2:// Modificar canción español
-							//vaciaEs = miListaEspanol.vacia();   // Si la lista está vacía, me informa y no y no me deja modidficar.	
-																		
-							vaciaEs= datos.BaseDatosVacia.bdVacia("SELECT COUNT(*) FROM canciones_espanol");						
+							// Si la lista está vacía, me informa y no y no me deja modidficar.		
+							
+							vaciaEs= datos.BaseDatosVacia.bdVacia("SELECT COUNT(*) FROM canciones_espanol"); 	
+							
 							if (vaciaEs == true) {
 								System.out.println("No se pueden modificar canciones porque tu lista está vacia.");
 							} else { // Muestra la lista de canciones para confirmar
@@ -108,6 +109,9 @@ public class Controlador {
 									datoInEsInteger = Util.pedirInt("¿Cuál quiéres introducir en su lugar?");
 
 									miListaEspanol.cambiarAtributo(datoOutEsInteger, datoInEsInteger);
+									
+									Util.mensaje("Esta es tu lista de canciones en español" );
+									BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_espanol ;");	//Muestro las canciones de mi BBDD mediante Select
 
 								} else {
 
@@ -125,14 +129,14 @@ public class Controlador {
 							break;
 
 						case 3:// Eliminar canción español
-							vaciaEs = miListaEspanol.vacia();// Si la lista está vacía, me informa y no
-																// y no me deja eliminar.
-
+							// Si la lista está vacía, me informa y no y no me deja modidficar.		
+							vaciaEs= datos.BaseDatosVacia.bdVacia("SELECT COUNT(*) FROM canciones_espanol"); 
+							
 							if (vaciaEs == true) {
 								System.out.println("No se pueden modificar canciones porque tu lista está vacia.");
 							} else {
-								Util.mensaje("Esta es tu lista de canciones: ");
-								System.out.println(miListaEspanol.toString());
+								Util.mensaje("Esta es tu lista de canciones en español" );
+								BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_espanol ;");	//Muestro las canciones de mi BBDD mediante Select
 
 								cancionDelEs = Util.pedirString("¿Qué canción quieres eliminar?");
 
@@ -145,11 +149,10 @@ public class Controlador {
 							break;
 
 						case 4:// Buscar canción español
-							vaciaEs = miListaEspanol.vacia();// Si la lista está vacía, me informa y no
-																// y no me deja buscar.
+							// Si la lista está vacía, me informa y no y no me deja modidficar.	
 							
-							//miListaEspanol.bdVaciaEs(); //Método que busque en la base de datos 
-							
+							vaciaEs= datos.BaseDatosVacia.bdVacia("SELECT COUNT(*) FROM canciones_espanol"); 
+										
 							if (vaciaEs == true) {
 								System.out.println("No se pueden buscar canciones porque tu lista está vacia.");
 							} else {
@@ -173,6 +176,7 @@ public class Controlador {
 									datoFindEs = Util.pedirString("¿Qué palabra quieres usar para la búsqueda?");
 
 									miListaEspanol.buscar(parametroAbuscarEs, datoFindEs);
+									
 
 								}
 
@@ -202,7 +206,6 @@ public class Controlador {
 						case 1:// Añadir canción ingles
 							Util.mensaje("Aquí puedes añadir tu nueva canción a la lista de reproducción");
 							miListaIngles.addcancionIn();
-							System.out.println(miListaIngles.toString());
 							
 							Util.mensaje("Esta es tu lista de canciones en ingles" );
 							BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_ingles ;");	//Muestro las canciones de mi BBDD mediante Select
@@ -211,8 +214,9 @@ public class Controlador {
 
 						case 2:// Modificar canción ingles
 
-							vaciaIn = miListaIngles.vacia();// Si la lista está vacía, me informa y no
-							// y no me deja modidficar.
+							// Si la lista está vacía, me informa y no y no me deja modidficar.		
+							vaciaIn= datos.BaseDatosVacia.bdVacia("SELECT COUNT(*) FROM canciones_ingles"); 
+							
 							if (vaciaIn == true) {
 								System.out.println("No se pueden modificar canciones porque tu lista está vacia.");
 							} else { // Muestra la lista de canciones para confirmar
@@ -250,8 +254,8 @@ public class Controlador {
 
 						case 3:// Eliminar canción ingles
 
-							vaciaIn = miListaIngles.vacia();// Si la lista está vacía, me informa y no
-															// y no me deja modidficar.
+							// Si la lista está vacía, me informa y no y no me deja modidficar.		
+							vaciaIn= datos.BaseDatosVacia.bdVacia("SELECT COUNT(*) FROM canciones_ingles"); 
 
 							if (vaciaIn == true) {
 								System.out.println("No se pueden eliminar canciones porque tu lista está vacia.");
@@ -272,9 +276,9 @@ public class Controlador {
 
 						case 4:// Buscar canción ingles
 
-							vaciaIn = miListaIngles.vacia();// Si la lista está vacía, me informa y no
-															// y no me deja buscar.
-
+							// Si la lista está vacía, me informa y no y no me deja modidficar.		
+							vaciaIn= datos.BaseDatosVacia.bdVacia("SELECT COUNT(*) FROM canciones_ingles"); 
+							
 							if (vaciaIn == true) {
 								System.out.println("No se pueden buscar canciones porque tu lista está vacia.");
 							} else {

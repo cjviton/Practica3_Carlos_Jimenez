@@ -2,6 +2,7 @@ package control_utilidades;
 
 import java.util.ArrayList;
 import datos.BaseDatos;
+import datos.BaseDatosSelect;
 import usuario.Util;
 /**
  * Objetos de la calse Listan In
@@ -197,41 +198,35 @@ public class ListaIN {
 	 */
       public void buscar(int atributo, String textoAbuscar) {
 
-		
-		for (Cancion item : miListaIn) {
-
 			switch (atributo) {
 
 			case 1:// Busca por título
 
-				if (item.getTitulo().equals(textoAbuscar)) {
-					System.out.println(item);
-				}
+				//Inserto la sentencia SQL para que busque la canción de la base de datos por título
+				BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_ingles WHERE titulo = '" + textoAbuscar + "';");
+				
 				break;
 
 			case 2:// Busca por artista
 
-				if (item.getArtista().equals(textoAbuscar)) {
-					System.out.println(item);
-				}
+				//Inserto la sentencia SQL para que busque la canción de la base de datos por artista
+				BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_ingles WHERE artista = '" + textoAbuscar + "';");
 				break;
 
 			case 3:// Busca por Genero
 
-				if (item.getGenero().equals(textoAbuscar)) {
-					System.out.println(item);
-				}
+				//Inserto la sentencia SQL para que busque la canción de la base de datos por genero
+				BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_ingles WHERE genero = '" + textoAbuscar + "';");
 				break;
 
 			case 5:// Busca por estado de ánimo
-				
-				if (item.getEstadoAnimo().equals(textoAbuscar)) {
-					System.out.println(item);
+
+				//Inserto la sentencia SQL para que busque la canción de la base de datos por estado de ánimo
+				BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_ingles WHERE estado_animo = '" + textoAbuscar + "';");
 				break;
 			}
 		}
-	}
-  }
+  
 
 	
 	/**
@@ -240,12 +235,10 @@ public class ListaIN {
 	 * @param datoAbuscar
 	 */
 	public void buscarInt(int datoAbuscar) { //Busca por año
-		for (Cancion item : miListaIn) {
-			
-			if (item.getAno() == datoAbuscar) {
-				System.out.println(item);
-				}			
+	
+			//Inserto la sentencia SQL para que busque la canción de la base de datos por año
+			BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_ingles WHERE ano = '" + datoAbuscar + "';");
 	   }	
 	}
 
-}
+
