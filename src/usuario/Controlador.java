@@ -85,8 +85,9 @@ public class Controlador {
 							break;
 
 						case 2:// Modificar canción español
-							vaciaEs = miListaEspanol.vacia();// Si la lista está vacía, me informa y no
-																// y no me deja modidficar.
+							//vaciaEs = miListaEspanol.vacia();   // Si la lista está vacía, me informa y no y no me deja modidficar.	
+																		
+							vaciaEs= datos.BaseDatosVacia.bdVacia("SELECT COUNT(*) FROM canciones_espanol");						
 							if (vaciaEs == true) {
 								System.out.println("No se pueden modificar canciones porque tu lista está vacia.");
 							} else { // Muestra la lista de canciones para confirmar

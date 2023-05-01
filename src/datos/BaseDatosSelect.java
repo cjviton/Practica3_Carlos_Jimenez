@@ -33,7 +33,7 @@ public class BaseDatosSelect {
 			while (rs.next()) {                             // chequeo que el result set no sea vacío, moviendo el cursor a la
 				                                            // primer fila. (El cursor inicia antes de la primer fila)
 				                                            // Si hay resultados obtengo el valor. 
-				System.out.println( "Título: " + rs.getString("titulo") +  "  - Artista: " + rs.getString("artista") +  ",  - Genero: " + rs.getString("genero") + "  - Año: " + rs.getInt("ano") + "  - Estado de ánimo:  " + rs.getString("estado_animo"));
+				System.out.println( "Título: " + rs.getString("titulo") +  "  - Artista: " + rs.getString("artista") +  "  - Genero: " + rs.getString("genero") + "  - Año: " + rs.getInt("ano") + "  - Estado de ánimo:  " + rs.getString("estado_animo"));
 			}
 
 		} catch (SQLException | ClassNotFoundException ex) {
