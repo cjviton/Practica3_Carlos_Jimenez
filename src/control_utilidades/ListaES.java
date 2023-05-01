@@ -85,6 +85,8 @@ public class ListaES {
 		}
 		return vacio;
 	}
+	
+	
 
 	/**
 	 * Modifica el parametro de tipo String de un objeto tipo Cancion. Este método
@@ -208,13 +210,10 @@ public class ListaES {
 			switch (atributo) {
 
 			case 1:// Busca por título
-
-				if (item.getTitulo().equals(textoAbuscar)) {
-					System.out.println(item);
-					//Inserto la sentencia SQL para que busque la canción de la base de datos por título
+				   //Inserto la sentencia SQL para que busque la canción de la base de datos por título
 					String sql= ("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE titulo = '" + textoAbuscar + "';"); 
 					BaseDatosSelect.ejecutarSqlSelect(sql);	
-				}
+				
 				break;
 
 			case 2:// Busca por artista

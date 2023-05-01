@@ -2,6 +2,7 @@ package usuario;
 
 import control_utilidades.ListaES;
 import control_utilidades.ListaIN;
+import datos.BaseDatosSelect;
 
 /**
  * Clase controlador para ejecución del programa
@@ -77,7 +78,9 @@ public class Controlador {
 						case 1:// Añadir canción español
 							Util.mensaje("Aquí puedes añadir tu nueva canción a la lista de reproducción");
 							miListaEspanol.addcancionEs();
-							System.out.println(miListaEspanol.toString());
+							
+							Util.mensaje("Esta es tu lista de canciones en español" );
+							BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_espanol ;");	//Muestro las canciones de mi BBDD mediante Select
 
 							break;
 
@@ -88,8 +91,9 @@ public class Controlador {
 								System.out.println("No se pueden modificar canciones porque tu lista está vacia.");
 							} else { // Muestra la lista de canciones para confirmar
 										// el dato a modificar
-								Util.mensaje("Esta es tu lista de canciones: ");
-								System.out.println(miListaEspanol.toString());
+								
+								Util.mensaje("Esta es tu lista d canciones en español" );
+								BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_espanol ;");	//Muestro las canciones de mi BBDD mediante Select
 
 								Util.mensaje("¿Qué quiéres modificar?");
 								parametroAmodidficarEs = Util.menu5opciones("Titulo", "Artista", "Género", "Año",
@@ -112,7 +116,8 @@ public class Controlador {
 
 									miListaEspanol.cambiarAtributo(parametroAmodidficarEs, datoOutEs, datoInEs);
 
-									System.out.println(miListaEspanol.toString());
+									Util.mensaje("Esta es tu lista de canciones en español" );
+									BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_espanol ;");	//Muestro las canciones de mi BBDD mediante Select
 								}
 							}
 
@@ -132,8 +137,8 @@ public class Controlador {
 
 								miListaEspanol.eliminar(cancionDelEs);
 
-								System.out.println(miListaEspanol.toString());
-
+								Util.mensaje("Esta es tu lista de canciones en español" );
+								BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_espanol ;");	//Muestro las canciones de mi BBDD mediante Select
 							}
 
 							break;
@@ -141,13 +146,15 @@ public class Controlador {
 						case 4:// Buscar canción español
 							vaciaEs = miListaEspanol.vacia();// Si la lista está vacía, me informa y no
 																// y no me deja buscar.
-
+							
+							//miListaEspanol.bdVaciaEs(); //Método que busque en la base de datos 
+							
 							if (vaciaEs == true) {
 								System.out.println("No se pueden buscar canciones porque tu lista está vacia.");
 							} else {
 
-								Util.mensaje("Esta es tu lista de canciones: ");
-								System.out.println(miListaEspanol.toString());
+								Util.mensaje("Esta es tu lista de canciones en español" );
+								BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_espanol ;");	//Muestro las canciones de mi BBDD mediante Select
 
 								Util.mensaje("¿Qué tipo de busqueda quiéres hacer?");
 								parametroAbuscarEs = Util.menu5opciones("Titulo", "Artista", "Género", "Año",
@@ -195,6 +202,9 @@ public class Controlador {
 							Util.mensaje("Aquí puedes añadir tu nueva canción a la lista de reproducción");
 							miListaIngles.addcancionIn();
 							System.out.println(miListaIngles.toString());
+							
+							Util.mensaje("Esta es tu lista de canciones en ingles" );
+							BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_ingles ;");	//Muestro las canciones de mi BBDD mediante Select
 
 							break;
 
@@ -206,8 +216,8 @@ public class Controlador {
 								System.out.println("No se pueden modificar canciones porque tu lista está vacia.");
 							} else { // Muestra la lista de canciones para confirmar
 								// el dato a modificar
-								Util.mensaje("Esta es tu lista de canciones: ");
-								System.out.println(miListaIngles.toString());
+								Util.mensaje("Esta es tu lista de canciones en ingles" );
+								BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_ingles ;");	//Muestro las canciones de mi BBDD mediante Select
 
 								Util.mensaje("¿Qué quiéres modificar?");
 								parametroAmodidficarIn = Util.menu5opciones("Titulo", "Artista", "Género", "Año",
@@ -230,7 +240,8 @@ public class Controlador {
 
 									miListaIngles.cambiarAtributo(parametroAmodidficarIn, datoOutIn, datoInIn);
 
-									System.out.println(miListaIngles.toString());
+									Util.mensaje("Esta es tu lista de canciones en ingles" );
+									BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_ingles ;");	//Muestro las canciones de mi BBDD mediante Select
 								}
 							}
 
@@ -244,14 +255,15 @@ public class Controlador {
 							if (vaciaIn == true) {
 								System.out.println("No se pueden eliminar canciones porque tu lista está vacia.");
 							} else {
-								Util.mensaje("Esta es tu lista de canciones: ");
-								System.out.println(miListaIngles.toString());
+								Util.mensaje("Esta es tu lista de canciones en ingles" );
+								BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_ingles ;");	//Muestro las canciones de mi BBDD mediante Select
 
 								cancionDelIn = Util.pedirString("¿Qué canción quieres eliminar?");
 
 								miListaIngles.eliminar(cancionDelIn);
 
-								System.out.println(miListaIngles.toString());
+								Util.mensaje("Esta es tu lista de canciones en ingles" );
+								BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_ingles ;");	//Muestro las canciones de mi BBDD mediante Select
 
 							}
 
@@ -266,8 +278,8 @@ public class Controlador {
 								System.out.println("No se pueden buscar canciones porque tu lista está vacia.");
 							} else {
 
-								Util.mensaje("Esta es tu lista de canciones: ");
-								System.out.println(miListaIngles.toString());
+								Util.mensaje("Esta es tu lista de canciones en ingles" );
+								BaseDatosSelect.ejecutarSqlSelect("SELECT * FROM canciones_ingles ;");	//Muestro las canciones de mi BBDD mediante Select
 
 								Util.mensaje("¿Qué tipo de busqueda quiéres hacer?");
 								parametroAbuscarIn = Util.menu5opciones("Titulo", "Artista", "Género", "Año",

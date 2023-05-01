@@ -17,50 +17,40 @@ public class BaseDatosSelect {
 		//String sql = " ";
 
 		try {
-			// conectar con la base de datos
-			Class.forName("com.mysql.jdbc.Driver");
-			// proporcionamos la dirección, el administrador y  la clave
-			conexion = DriverManager.getConnection("jdbc:mysql://localhost/mi_musica", "root", "");
-																									
-			// creamos sentencias ejecutables sobre esa conexión
-			sentenciaSQL = conexion.createStatement();
+			
+			Class.forName("com.mysql.jdbc.Driver");          // conectar con la base de datos
+			
+			conexion = DriverManager.getConnection("jdbc:mysql://localhost/mi_musica", "root", "");   // proporcionamos la dirección, el administrador y  la clave
+																											
+			sentenciaSQL = conexion.createStatement();      // creamos sentencias ejecutables sobre esa conexión
 
-			// almaceno el resultado de la sql en un resulset (conjunto de registros)
-			//sql = "SELECT * FROM canciones_espanol";
-			// System.out.println(sql);      //Si tengo algún problema me servirá para mostrar y copiar la SQL 
-			//para ejecutarla en la base de datos y ver el resultado
-
+			// System.out.println(sql);                     //Si tengo algún problema me servirá para mostrar y copiar la SQL 
+		                                                	//para ejecutarla en la base de datos y ver el resultado
+			
 			rs = sentenciaSQL.executeQuery(sql);
-
-			// chequeo que el result set no sea vacío, moviendo el cursor a la
-			// primer fila. (El cursor inicia antes de la primer fila)
-			while (rs.next()) {
-				// Si hay resultados obtengo el valor.
-
-				System.out.println( rs.getString("cancion") + rs.getInt("cancion"));
+           
+						
+			while (rs.next()) {                             // chequeo que el result set no sea vacío, moviendo el cursor a la
+				                                            // primer fila. (El cursor inicia antes de la primer fila)
+				                                            // Si hay resultados obtengo el valor. 
+				System.out.println( "Título: " + rs.getString("titulo") +  "  - Artista: " + rs.getString("artista") +  ",  - Genero: " + rs.getString("genero") + "  - Año: " + rs.getInt("ano") + "  - Estado de ánimo:  " + rs.getString("estado_animo"));
 			}
 
 		} catch (SQLException | ClassNotFoundException ex) {
 			ex.printStackTrace();
-			// System.out.println("Error");
 		} finally {
 			try {
 				sentenciaSQL.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
 				conexion.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		}
-
 		System.out.println("Conectado/desconectado");
-
 	}
-
 }
