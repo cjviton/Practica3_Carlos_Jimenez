@@ -66,21 +66,7 @@ public class ListaIN {
 		BaseDatos.ejecutarSql(sql);
 	}
 
-	/**
-	 * Verifica si la lista está vacía
-	 * 
-	 * @author Carlos Jimenez 
-	 * @version1.0
-	 */
-	public boolean vacia() {
-		boolean vacio = true;
-		if (miListaIn.isEmpty()) {
 
-		} else {
-			vacio = false;
-		}
-		return vacio;
-	}
 
 	/**
 	 * Modifica el parametro de tipo String de un objeto tipo Cancion. Este método
@@ -98,51 +84,42 @@ public class ListaIN {
 	 */
 	public void cambiarAtributo(int atributo, String datoAcambiar, String datoNuevo) {
 
-		for (Cancion item : miListaIn) {
-
 			switch (atributo) {
 
 			case 1:// modifiac título
 
-				if (item.getTitulo().equals(datoAcambiar)) {
-					item.setTitulo(datoNuevo);
 					//Inserto la sentencia SQL para que modifique el titulo en la base de datos
-					String sql= ("UPDATE canciones_ingles SET titulo = '"+ datoNuevo+"' WHERE titulo = '"+datoAcambiar+"';");
-					BaseDatos.ejecutarSql(sql);		
-				}
+					String sqlTitulo= ("UPDATE canciones_ingles SET titulo = '"+ datoNuevo+"' WHERE titulo = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sqlTitulo);	
+					
 				break;
 
 			case 2:// modifica artista
 
-				if (item.getArtista().equals(datoAcambiar)) {
-					item.setArtista(datoNuevo);
 					//Inserto la sentencia SQL para que modifique el artista en la base de datos
-					String sql= ("UPDATE canciones_ingles SET artista = '"+ datoNuevo+"' WHERE artista = '"+datoAcambiar+"';");
-					BaseDatos.ejecutarSql(sql);	
-				}
+					String sqlArtista= ("UPDATE canciones_ingles SET artista = '"+ datoNuevo+"' WHERE artista = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sqlArtista);	
+					
 				break;
 
 			case 3:// Modifica Genero
-
-				if (item.getGenero().equals(datoAcambiar)) {
-					item.setGenero(datoNuevo);
+				
 					//Inserto la sentencia SQL para que modifique el genero en la base de datos
-					String sql= ("UPDATE canciones_ingles SET genero = '"+ datoNuevo+"' WHERE genero = '"+datoAcambiar+"';");
-					BaseDatos.ejecutarSql(sql);	
-				}
+					String sqlGenero= ("UPDATE canciones_ingles SET genero = '"+ datoNuevo+"' WHERE genero = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sqlGenero);	
+				
 				break;
 
 			case 5:// Modifica estado de ánimo
-				if (item.getEstadoAnimo().equals(datoAcambiar)) {
-					item.setEstadoAnimo(datoNuevo);
+
 					//Inserto la sentencia SQL para que modifique el estado de animo en la base de datos
-					String sql= ("UPDATE canciones_ingles SET estado_animo = '"+ datoNuevo+"' WHERE estado_animo = '"+datoAcambiar+"';");
-					BaseDatos.ejecutarSql(sql);	
-				}
+					String sqlEstado= ("UPDATE canciones_ingles SET estado_animo = '"+ datoNuevo+"' WHERE estado_animo = '"+datoAcambiar+"';");
+					BaseDatos.ejecutarSql(sqlEstado);	
+				
 				break;
 			}
 		}
-	}
+	
 
 	/**
 	 * Modifica el parametro año de tipo Integer de un objeto tipo Cancion
@@ -154,14 +131,9 @@ public class ListaIN {
 	 */
 	public void cambiarAtributo(int datoAcambiar, int datoNuevo) {
 
-		for (Cancion item : miListaIn) {
-			if (item.getAno() == datoAcambiar) {
-				item.setAno(datoNuevo);
 				//Inserto la sentencia SQL para que modifique el año en la base de datos
-				String sql= ("UPDATE canciones_ingles SET ano = '"+ datoNuevo+"' WHERE ano = '"+datoAcambiar+"';");
-				BaseDatos.ejecutarSql(sql);	
-			}
-		}
+				String sqlAno= ("UPDATE canciones_ingles SET ano = '"+ datoNuevo+"' WHERE ano = '"+datoAcambiar+"';");
+				BaseDatos.ejecutarSql(sqlAno);	
 	}
 
 	/**
@@ -171,23 +143,10 @@ public class ListaIN {
 	 * @version 1.0
 	 */
 	public void eliminar(String datoAeliminar) {
-		int longitud = miListaIn.size();
-		int i=0;
-		boolean encontrado = false;
-				
-		if (longitud > 0 ) {
-			do {
-				if (miListaIn.get(i).getTitulo().equals(datoAeliminar)) {
-					miListaIn.remove(i);
-					//Inserto la sentencia SQL para que elimine la canción de la base de datos
-					String sql= ("DELETE FROM canciones_ingles WHERE titulo = '" + datoAeliminar + "';"); 
-					BaseDatos.ejecutarSql(sql);	
-					encontrado=true;
-				}
-				i++;
-			}while (i < longitud && !encontrado);
-		
-		}
+
+			//Inserto la sentencia SQL para que elimine la canción de la base de datos
+			String sql= ("DELETE FROM canciones_ingles WHERE titulo = '" + datoAeliminar + "';"); 
+			BaseDatos.ejecutarSql(sql);		
 	}
 	
 	
@@ -238,7 +197,24 @@ public class ListaIN {
 	
 			//Inserto la sentencia SQL para que busque la canción de la base de datos por año
 			BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_ingles WHERE ano = '" + datoAbuscar + "';");
-	   }	
+	   }
+	
+	
+	/**
+	 * Verifica si la lista está vacía
+	 * 
+	 * @author Carlos Jimenez 
+	 * @version1.0
+	 */
+	public boolean vacia() {
+		boolean vacio = true;
+		if (miListaIn.isEmpty()) {
+
+		} else {
+			vacio = false;
+		}
+		return vacio;
+	}
 	}
 
 
