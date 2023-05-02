@@ -6,8 +6,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Clase BaseDatosSelect
+ * Conecta con la base de datos y 
+ * con el método BaseDatosVacia
+ * devuelve un booleano confirmando si contiene
+ * registros o si está vacía
+ * @author Carlos Jiménez
+ * @version 1.0
+ */
 public class BaseDatosVacia {
 	
+	/**
+	 *  Conecta con la base de datos y 
+     * devuelve un booleano confirmando si contiene
+     * registros o si está vacía
+	 * @param sql Sentencia Sql a ejecutar
+	 * @return
+	 * @author Carlos Jiménez
+	 * @version 1.0
+	 */
 	public static boolean bdVacia(String sql) {
 	
 	    boolean vacia=true;

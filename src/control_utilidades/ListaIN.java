@@ -5,7 +5,7 @@ import datos.BaseDatos;
 import datos.BaseDatosSelect;
 import usuario.Util;
 /**
- * Objetos de la calse Listan In
+ * Objetos de la calse Listan Ingles
  * @author Carlos
  * @ version 1.0
  */
@@ -42,7 +42,7 @@ public class ListaIN {
 
 	/**
 	 * Añade canciones en mi lista de ingles mediante scanner
-	 * 
+	 * genera INSERT en la base de datos 
 	 * @author Carlos Jiménez
 	 * @version 1.0
 	 */
@@ -152,6 +152,7 @@ public class ListaIN {
 	
 	/**
 	 * Busca en los atributos de tipo string de listas de música
+	 * Hace un SELECT sobre la base de datos
 	 * @param atributo
 	 * @param textoAbuscar
 	 */
@@ -190,6 +191,7 @@ public class ListaIN {
 	
 	/**
 	 * Busca en los atributos de tipo integer de listas de música
+	 * Hace un SELECT sobre la base de datos
 	 * @param atributo
 	 * @param datoAbuscar
 	 */
@@ -200,21 +202,6 @@ public class ListaIN {
 	   }
 	
 	
-	/**
-	 * Verifica si la lista está vacía
-	 * 
-	 * @author Carlos Jimenez 
-	 * @version1.0
-	 */
-	public boolean vacia() {
-		boolean vacio = true;
-		if (miListaIn.isEmpty()) {
-
-		} else {
-			vacio = false;
-		}
-		return vacio;
-	}
-	}
+}
 
 

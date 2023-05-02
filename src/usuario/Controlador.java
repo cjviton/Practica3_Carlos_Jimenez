@@ -7,7 +7,7 @@ import datos.BaseDatosSelect;
 /**
  * Clase controlador para ejecución del programa
  * 
- * @author Carlos
+ * @author Carlos Jiménez
  * @verion 1.0
  *
  */

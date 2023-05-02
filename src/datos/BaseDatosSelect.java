@@ -6,7 +6,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Clase BaseDatosSelect
+ * Conecta con la base de datos y 
+ * con el método BaseDatosSelect 
+ * ejecuta sentencias SELECT 
+ * @author Carlos Jiménez
+ *
+ */
+
 public class BaseDatosSelect {
+	
+	/**
+	 * Conecta con la base de datos y 
+     * ejecuta sentencias SELECT 
+	 * @param sql
+	 * @author Carlos jiménez
+	 * @version 1.0
+	 */
 
 	public static void ejecutarSqlSelect(String sql) {
 

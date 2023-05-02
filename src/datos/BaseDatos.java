@@ -5,7 +5,24 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Clase BaseDatos 
+ * Conecta con la base de datos y ejecuta
+ * sentencias INSERT, UPDATE Y DELETE
+ * con el método ejecutarSql
+ * @author Carlos
+ *
+ */
 public class BaseDatos {
+	
+	
+	/**
+	 * Conecta con la base de datos y ejecuta
+     * sentencias INSERT, UPDATE Y DELETE
+	 * @param sql
+	 * @author Carlos Jiménez
+	 * @Version 1.0
+	 */
 	
 	public static void ejecutarSql (String sql) {
 		

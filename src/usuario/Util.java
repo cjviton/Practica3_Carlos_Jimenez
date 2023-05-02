@@ -5,7 +5,8 @@ import java.util.Scanner;
 /**
  * Clase utilidades con métodos
  * 
- * @author Carlos @ version 1.0
+ * @author Carlos @ 
+ * version 1.0
  */
 public class Util {
 	/**

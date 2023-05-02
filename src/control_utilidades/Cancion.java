@@ -2,7 +2,8 @@ package control_utilidades;
 
 /**
  * Objetos de la clase canción
- * 
+ * Constructor con atributo id_cancion
+ * y sin atributo id_concion
  * @author Carlos
  * @version 1.0
  *

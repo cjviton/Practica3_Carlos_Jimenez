@@ -43,9 +43,10 @@ public class ListaES {
 		return "ListaES [usuario=" + usuario + ", miListaEs=" + miListaEs + "]";
 	}
 
+	
 	/**
 	 * Añade canciones en mi lista de español mediante scanner
-	 * 
+	 * genera INSERT en la base de datos 
 	 * @author Carlos Jimenez
 	 * @version 1.0
 	 */
@@ -160,7 +161,7 @@ public class ListaES {
 
 	/**
 	 * Busca en los atributos de tipo string de listas de música
-	 * 
+	 * Hace un SELECT sobre la base de datos
 	 * @param atributo
 	 * @param textoAbuscar
 	 */
@@ -201,7 +202,7 @@ public class ListaES {
 
 	/**
 	 * Busca en los atributos de tipo integer de listas de música
-	 * 
+	 * Hace un SELECT sobre la base de datos
 	 * @param atributo
 	 * @param datoAbuscar
 	 */
@@ -212,53 +213,5 @@ public class ListaES {
 			
 	}
 
-	
-	
-	
-	/**
-	 * Cambia el contenido del parametro titulo del un objeto cancion
-	 * 
-	 * @param tituloAcambiar
-	 * @param tituloNuevo
-	 */
-	public void cambiartitulo(String tituloAcambiar, String tituloNuevo) {
-
-		for (Cancion item : miListaEs) {
-			if (item.getTitulo().equals(tituloAcambiar)) {
-				item.setTitulo(tituloNuevo);
-			}
-		}
-	}
-
-	/**
-	 * Busca la posición en la lista del titulo introducido por parametro
-	 * 
-	 * @param tituloBuscado
-	 * @return indice
-	 */
-	public int buscarCancionPorTitulo(String tituloBuscado) {
-		int posicionBuscada = -1;
-		for (int i = 0; i < miListaEs.size(); i++) {
-			if (miListaEs.get(i).getTitulo().equals(tituloBuscado)) {
-				posicionBuscada = i;
-			}
-		}
-		return posicionBuscada;
-	}
-	
-	/**
-	 * Verifica si la lista está vacía
-	 * 
-	 * @author Carlos Jimenez @version1.0
-	 */
-	public boolean vacia() {
-		boolean vacio = true;
-		if (miListaEs.isEmpty()) {
-
-		} else {
-			vacio = false;
-		}
-		return vacio;
-	}
 
 }
