@@ -43,16 +43,15 @@ public class ListaES {
 		return "ListaES [usuario=" + usuario + ", miListaEs=" + miListaEs + "]";
 	}
 
-	
 	/**
-	 * Añade canciones en mi lista de español mediante scanner
-	 * genera INSERT en la base de datos 
+	 * Añade canciones en mi lista de español mediante scanner genera INSERT en la
+	 * base de datos
+	 * 
 	 * @author Carlos Jimenez
 	 * @version 1.0
 	 */
 	public void addcancionEs() { // Añadir canciones en mi lista de español mediante scanner
-        
-		
+
 		String titulo = "";
 		String artista = "";
 		String genero = "";
@@ -64,17 +63,15 @@ public class ListaES {
 		genero = Util.pedirString("Genero");
 		ano = Util.pedirInt("Año");
 		EstadoAnimo = Util.pedirString("Estado de ánimo");
-        
-		Cancion miCancion = new Cancion(titulo, artista, genero, ano, EstadoAnimo); //Inicializo la canción nombrándola para poder asignarla
-		miListaEs.add(miCancion);                                                   //a la variable sql
+
+		Cancion miCancion = new Cancion(titulo, artista, genero, ano, EstadoAnimo); // Inicializo la canción nombrándola
+																					// para poder asignarla
+		miListaEs.add(miCancion); // a la variable sql
 		String sql = datos.InsertSqlES.cancionAsql(miCancion);
 		BaseDatos.ejecutarSql(sql);
-		
+
 	}
 
-
-	
-	
 	/**
 	 * Modifica el parametro de tipo String de un objeto tipo Cancion. Este método
 	 * se complementa co el meétodo menu5opciones o con el método menu3opciones, que
@@ -89,40 +86,45 @@ public class ListaES {
 	 */
 	public void cambiarAtributo(int atributo, String datoAcambiar, String datoNuevo) {
 
-			switch (atributo) {
+		switch (atributo) {
 
-			case 1:// modifiac título
-				
-					//Inserto la sentencia SQL para que modifique el titulo en la base de datos
-				    String sqlTitulo= ("UPDATE canciones_espanol SET titulo = '"+ datoNuevo+"' WHERE titulo = '"+datoAcambiar+"';");
-					BaseDatos.ejecutarSql(sqlTitulo);				
-				
-				break;
+		case 1:// modifiac título
 
-			case 2:// modifica artista
+			// Inserto la sentencia SQL para que modifique el titulo en la base de datos
+			String sqlTitulo = ("UPDATE canciones_espanol SET titulo = '" + datoNuevo + "' WHERE titulo = '"
+					+ datoAcambiar + "';");
+			BaseDatos.ejecutarSql(sqlTitulo);
 
-					//Inserto la sentencia SQL para que modifique el artista en la base de datos
-					String sqlArtista= ("UPDATE canciones_espanol SET artista = '"+ datoNuevo+"' WHERE artista = '"+datoAcambiar+"';");
-					BaseDatos.ejecutarSql(sqlArtista);											
-				
-				break;
+			break;
 
-			case 3:// Modifica Genero
+		case 2:// modifica artista
 
-					//Inserto la sentencia SQL para que modifique el genero en la base de datos
-					String sqlGenero= ("UPDATE canciones_espanol SET genero = '"+ datoNuevo+"' WHERE genero = '"+datoAcambiar+"';");
-					BaseDatos.ejecutarSql(sqlGenero);	
-				
-				break;
+			// Inserto la sentencia SQL para que modifique el artista en la base de datos
+			String sqlArtista = ("UPDATE canciones_espanol SET artista = '" + datoNuevo + "' WHERE artista = '"
+					+ datoAcambiar + "';");
+			BaseDatos.ejecutarSql(sqlArtista);
 
-			case 5:// Modifica estado de ánimo
+			break;
 
-					//Inserto la sentencia SQL para que modifique el estado de animo en la base de datos
-					String sqlEstado= ("UPDATE canciones_espanol SET estado_animo = '"+ datoNuevo+"' WHERE estado_animo = '"+datoAcambiar+"';");
-					BaseDatos.ejecutarSql(sqlEstado);	
-				
-				break;
-			
+		case 3:// Modifica Genero
+
+			// Inserto la sentencia SQL para que modifique el genero en la base de datos
+			String sqlGenero = ("UPDATE canciones_espanol SET genero = '" + datoNuevo + "' WHERE genero = '"
+					+ datoAcambiar + "';");
+			BaseDatos.ejecutarSql(sqlGenero);
+
+			break;
+
+		case 5:// Modifica estado de ánimo
+
+			// Inserto la sentencia SQL para que modifique el estado de animo en la base de
+			// datos
+			String sqlEstado = ("UPDATE canciones_espanol SET estado_animo = '" + datoNuevo + "' WHERE estado_animo = '"
+					+ datoAcambiar + "';");
+			BaseDatos.ejecutarSql(sqlEstado);
+
+			break;
+
 		}
 	}
 
@@ -137,12 +139,10 @@ public class ListaES {
 
 	public void cambiarAtributo(int datoAcambiar, int datoNuevo) {
 
-				//Inserto la sentencia SQL para que modifique el año en la base de datos
-				String sqlAno= ("UPDATE canciones_espanol SET ano = '"+ datoNuevo+"' WHERE ano = '"+datoAcambiar+"';");
-				BaseDatos.ejecutarSql(sqlAno);	
-		}
-		
-	
+		// Inserto la sentencia SQL para que modifique el año en la base de datos
+		String sqlAno = ("UPDATE canciones_espanol SET ano = '" + datoNuevo + "' WHERE ano = '" + datoAcambiar + "';");
+		BaseDatos.ejecutarSql(sqlAno);
+	}
 
 	/**
 	 * Elimina un objeto de la clase canción apartir del título en listas de música
@@ -152,66 +152,80 @@ public class ListaES {
 	 * @version 1.0
 	 */
 	public void eliminar(String datoAeliminar) {
-		
-					//Inserto la sentencia SQL para que elimine la canción de la base de datos
-					String sql= ("DELETE FROM canciones_espanol WHERE titulo = '" + datoAeliminar + "';"); 
-					BaseDatos.ejecutarSql(sql);	
-			
+
+		// Inserto la sentencia SQL para que elimine la canción de la base de datos
+		String sql = ("DELETE FROM canciones_espanol WHERE titulo = '" + datoAeliminar + "';");
+		BaseDatos.ejecutarSql(sql);
+
 	}
 
 	/**
-	 * Busca en los atributos de tipo string de listas de música
-	 * Hace un SELECT sobre la base de datos
+	 * Busca en los atributos de tipo string de listas de música Hace un SELECT
+	 * sobre la base de datos
+	 * 
 	 * @param atributo
 	 * @param textoAbuscar
 	 */
 	public void buscar(int atributo, String textoAbuscar) {
 
-			switch (atributo) {
+		switch (atributo) {
 
-			case 1:// Busca por título				
-	
-				//Inserto la sentencia SQL para que busque la canción de la base de datos por título
-				BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE titulo = '" + textoAbuscar + "';");
-		    	
+		case 1:// Busca por título
+
+			// Inserto la sentencia SQL para que busque la canción de la base de datos por
+			// título
+			BaseDatosSelect.ejecutarSqlSelect(
+					"SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE titulo = '"
+							+ textoAbuscar + "';");
+
 			break;
 
-			case 2:// Busca por artista
-                //Inserto la sentencia SQL para que busque la canción de la base de datos por artista
-				BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE artista = '" + textoAbuscar + "';");
-				
-				break;
+		case 2:// Busca por artista
+				// Inserto la sentencia SQL para que busque la canción de la base de datos por
+				// artista
+			BaseDatosSelect.ejecutarSqlSelect(
+					"SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE artista = '"
+							+ textoAbuscar + "';");
 
-			case 3:// Busca por Genero
+			break;
 
-				//Inserto la sentencia SQL para que busque la canción de la base de datos por genero
-				BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE genero = '" + textoAbuscar + "';");
-									
-				break;
+		case 3:// Busca por Genero
 
-			case 5:// Busca por estado de ánimo
+			// Inserto la sentencia SQL para que busque la canción de la base de datos por
+			// genero
+			BaseDatosSelect.ejecutarSqlSelect(
+					"SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE genero = '"
+							+ textoAbuscar + "';");
 
-				//Inserto la sentencia SQL para que busque la canción de la base de datos por estado de ánimmo
-				BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE estado_animo = '" + textoAbuscar + "';");
-				
-				break;
-			}
-      }
-	
-	
+			break;
+
+		case 5:// Busca por estado de ánimo
+
+			// Inserto la sentencia SQL para que busque la canción de la base de datos por
+			// estado de ánimmo
+			BaseDatosSelect.ejecutarSqlSelect(
+					"SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE estado_animo = '"
+							+ textoAbuscar + "';");
+
+			break;
+		}
+	}
 
 	/**
-	 * Busca en los atributos de tipo integer de listas de música
-	 * Hace un SELECT sobre la base de datos
+	 * Busca en los atributos de tipo integer de listas de música Hace un SELECT
+	 * sobre la base de datos
+	 * 
 	 * @param atributo
 	 * @param datoAbuscar
 	 */
 	public void buscarInt(int datoAbuscar) { // Busca por año
-		
-			//Inserto la sentencia SQL para que busque la canción de la base de datos por año
-			BaseDatosSelect.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE ano = '" + datoAbuscar + "';");
-			
-	}
 
+		// Inserto la sentencia SQL para que busque la canción de la base de datos por
+		// año
+		BaseDatosSelect
+				.ejecutarSqlSelect("SELECT titulo,artista,genero,ano,estado_animo FROM canciones_espanol WHERE ano = '"
+						+ datoAbuscar + "';");
+
+	}
 
 }

@@ -9,12 +9,10 @@ class UtilTest {
 
 	@Test
 	void testMensaje() {
-		String texto= "correcto";
+		String texto = "correcto";
 		System.out.println("correcto");
-		
-		assertEquals(texto,"correcto");			
-	}
 
-	
+		assertEquals(texto, "correcto");
+	}
 
 }

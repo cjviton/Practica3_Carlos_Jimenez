@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-
 class CancionTest {
 
 	Cancion cancionPrueba = new Cancion("titulo", "artista", "Genero", 1, "animo");

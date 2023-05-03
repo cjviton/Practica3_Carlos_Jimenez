@@ -3,11 +3,9 @@ package datos;
 import control_utilidades.Cancion;
 
 /**
- * Clase insertSqlIN
- * Conecta con la base de datos y 
- * con el método insertSqlIN y genera la 
- * sentencia INSERT en la lista de canciones 
- * en ingles
+ * Clase insertSqlIN Conecta con la base de datos y con el método insertSqlIN y
+ * genera la sentencia INSERT en la lista de canciones en ingles
+ * 
  * @author Carlos Jiménez
  * @version 1.0
  */
@@ -15,12 +13,11 @@ import control_utilidades.Cancion;
 public class InsertSqlIN { // Genero la sentencia SQL de inserción para ingles
 
 	public static String cancionAsql(Cancion miCancion) {
-		
+
 		/**
-		 * Clase insertSqlIN
-		 * Conecta con la base de datos y 
-		 * y genera la sentencia INSERT en la lista 
-		 * de canciones  en ingles
+		 * Clase insertSqlIN Conecta con la base de datos y y genera la sentencia INSERT
+		 * en la lista de canciones en ingles
+		 * 
 		 * @author Carlos Jiménez
 		 * @version 1.0
 		 */
@@ -35,4 +32,3 @@ public class InsertSqlIN { // Genero la sentencia SQL de inserción para ingles
 	}
 
 }
-
